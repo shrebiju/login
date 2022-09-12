@@ -25,7 +25,7 @@ class CustomerController extends Controller
               $data = Customer::latest()->get();
           
         } else {
-            $user = User::with(['customers'])->find(1);
+            $user = User::with(['customers'])->find(4);
             return $user->toArray();
         }
         
