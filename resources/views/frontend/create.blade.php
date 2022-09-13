@@ -21,12 +21,12 @@
    <div class="card-header">
     <h4 class="">Add Category</h4>
    </div>
+   @include('admin.message')
    <div class="card-body">
-    <form action="{{ route('customer.store') }}" method="POST"  enctype="multipart/form-data">
-  
+    <form action="{{ route('frontend.customer.store') }}" method="POST"  enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-            <label for="">Category Name</label>
+            <label for="">Name</label>
             <input type="text" name="name" class="form-control" data-validation="required">
         </div>
         <div class="mb-3">
@@ -41,18 +41,13 @@
             <label for="">Send Message </label>
             <textarea name="description" row="5" class="form-control" data-validation="required"></textarea>
         </div>
+        <input type="hidden" name="user_id" value="{{$model}}">
         <label for="cars">Client Choose:</label>
        
 
       
-<select name="user_id" id="user_id" class="form-control">
-                                                <option value="select a category">Select a Category</option>
-                                                @foreach($client as $category)
-                                              
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
-                                                @endforeach
-                                            </select>
-        </div>
+     
+    </div>
         <div class="mb-3">
         <div class="col-md-6">
         <button type="submit" class="btn btn-primary">Register</button>

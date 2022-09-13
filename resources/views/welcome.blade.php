@@ -39,7 +39,7 @@
                                 <a href="{{ route('register') }}" class="btn btn-outline-primary">Register</a>
                             @endif
                            
-                                <a href="{{route('customer.index')}}" class="btn btn-outline-primary">Customer</a>
+                                <a href="{{route('frontend.customer.create')}}" class="btn btn-outline-primary">Customer</a>
                            
                         @endif
                     </div>

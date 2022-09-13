@@ -15,8 +15,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{url('admin/customers')}}">Customer</a>
-                                    <a class="nav-link" href="{{url('admin/customers/create')}}">Customer create</a>
+                                    <a class="nav-link" href="{{url('admin/customers',Auth()->user())}}">Customer</a>
+                                    <a class="nav-link" href="{{url('admin/customerscreate')}}">Customer create</a>
                                 </nav>
                             </div>
                             <div>
@@ -35,9 +35,9 @@
                             </div>
                             
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link" href="{{route('link.list')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
+                                Link
                             </a>
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
@@ -50,9 +50,9 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="{{route('link.create')}}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                link create
                             </a>
                         </div>
                     </div>

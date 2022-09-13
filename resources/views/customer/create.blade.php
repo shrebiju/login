@@ -8,6 +8,7 @@
     <h4 class="">Add Category</h4>
    </div>
    <div class="card-body">
+   @include('admin.message')
     <form action="{{ route('customer.store') }}" method="POST"  enctype="multipart/form-data">
   
         @csrf

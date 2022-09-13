@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller
 {
     //
-    public function index()
+    public function index($id)
     {
         // $user = User::whereId(User::get('cutomers'))->first();
         // return $user->toArray();
@@ -21,21 +21,22 @@ class CustomerController extends Controller
         // $user = User::where('id')->get();
         // dd($user);
      
-        if (Auth::user()->role_as == 1) {
-              $data = Customer::latest()->get();
+    //      if (Auth::user()->role_as == 1) {
+    //            $user = Customer::latest()->get();
           
-        } else {
-            $user = User::with(['customers'])->find(4);
-            return $user->toArray();
-        }
+    //  } else {
+            $user = User::with(['customers'])->find($id);
+            $client = $user->customers;
+   
         
-        return view('frontend.create');
+        return view('customer.index',compact('client'));
      
         // return view('customer.index',compact('data'));
     }
 
     public function create()
     {
+       
         return view('customer.create');
     }
     public function store(Request $request)
@@ -51,8 +52,11 @@ class CustomerController extends Controller
                 ]
             );
         $customer = Customer::create($request->all());
-        return redirect()->route('customer.index',$customer->id)
-        ->with('status','Customer Created Successfully');
+        return redirect()->back()
+        ->withSuccess(['Customer Created succesfully!']);
+        // return redirect()->route('customer.index',$customer->id)
+        // ->withSuccess(['Customer Created succesfully!']);
+      
           
     }
     public function user(){

@@ -13,13 +13,12 @@
                 <table id="example1" class="table table-bordered table-hover role-table">
                     <thead>
                     <tr>
-
-                    
                         <th>SN</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone Number</th>
                         <th>Message</th>
+                        <th>Link Generated</th>
                     </tr>
                     </thead>
                     <tbody id="tablebody">
@@ -43,10 +42,10 @@
                             @endforeach -->
                             @if( Auth::check())
                             @if(Auth::user()->role_as == 1)
-                            @foreach($user as $index=>$userlist)
+                            @foreach($user as $key=>$userlist)
                             <tr class="gradeX" id="">
                                     <td class="index">
-                                        {{ ++$index }}
+                                        {{ ++$key }}
                                     </td>
                                     <td class="title">
                                         {{ $userlist->name }}
@@ -59,6 +58,12 @@
                                     </td>
                                     <td class="attachment">
                                         {{ $userlist->message }}
+                                      
+                                    </td>
+                                    <td class="attachment">
+                                    @php $clientID= Crypt::encrypt($userlist->id);
+                                    @endphp
+                                       <a href="{{url('frontend/customer',($clientID))}}">Please click in Link </a>
                                     </td>
                                 </a>
                                 </td> 
@@ -68,6 +73,9 @@
                                 @endif
                                 @if(Auth::user()->role_as == 0)
                                 <tr class="gradeX" id="">
+                                <td class="index">
+                                        {{ ++$index }}
+                                    </td>
                                     <td class="index">
                                       
                                         {{ Auth::user()->name }} 
@@ -81,6 +89,10 @@
                                     </td>
                                     <td class="attachment">
                                     {{ Auth::user()->message }} 
+                                    </td>
+                                    <td class="attachment">
+                                    @php $prodID= Crypt::encrypt($userlist->id); @endphp
+                                       <a href="{{route('frontend.customer.create',$prodID)}}">Please click in Link </a>
                                     </td>
                                 </a>
                                 </td> 

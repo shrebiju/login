@@ -20,8 +20,9 @@
                         <th class="dt-center">Actions</th>
                     </tr>
                     </thead>
+                    @include('admin.message')
                     <tbody id="tablebody">
-                    @foreach($data as $index=>$customerlist)
+                    @foreach($client as $index=>$customerlist)
                                 <tr class="gradeX" id="">
                                     <td class="index">
                                         {{ ++$index }}
@@ -46,7 +47,8 @@
                                     </form>
                                             </a>    &nbsp&nbsp   
                                         &nbsp&nbsp  
-                                     <a href="{{route('customer.edit',$customerlist->id)}}" id="">
+                                        @php $prodID= Crypt::encrypt($customerlist->id); @endphp
+                                     <a href="{{route('customer.edit',$prodID)}}" id="">
                                     <button type="button" class="btn btn-primary btn-flat">
                                         <i class="fa fa-eye"></i>
                                     </button>
