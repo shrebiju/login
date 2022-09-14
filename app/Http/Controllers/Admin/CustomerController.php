@@ -77,7 +77,8 @@ class CustomerController extends Controller
         $data['name'] = $request->name;
         $data['email'] = $request->email;
         $data['phone_number'] = $request->phone_number;
-        $data['description'] = $request->description;
+        $data['message'] = $request->message;
+        $data['dob'] = $request->dob;
         $customers = Customer::whereId($id)->update($data);
         return redirect()->route('customer.index', $customers)->with('message','Customers updated successfully');
     }

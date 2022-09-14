@@ -25,7 +25,7 @@ class CustomerController extends Controller
                     'name' => 'required',
                 ],
                 [
-                    'name.required' => 'Customer category is required!!',
+                    'name.required' => 'Customer name is required!!',
                 ]
             );
         $customer = Customer::create($request->all());

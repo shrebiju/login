@@ -17,9 +17,10 @@ class CreateCustomersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('DOB')->nullable();
             $table->foreignId('user_id')->constrained()->OnDelete('cascade');
             $table->string('phone_number')->nullable();
-            $table->longText('description');
+            $table->longText('message');
             $table->timestamps();
         });
     }

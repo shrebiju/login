@@ -24,8 +24,8 @@
         </div>
         <div class="mb-3">
             <label for="">Send Message </label>
-            <textarea name="description" row="5" class="form-control">
-            {{  $customers->description  }}
+            <textarea name="message" row="5" class="form-control">
+            {{  $customers->message  }}
             </textarea>
         </div>
         <div class="col-md-6">

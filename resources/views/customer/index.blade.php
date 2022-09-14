@@ -37,7 +37,7 @@
                                         {{ $customerlist->phone_number }}
                                     </td>
                                     <td class="attachment">
-                                        {{ $customerlist->description }}
+                                        {{ $customerlist->message }}
                                     </td>
                                     <td class="justify-content-center d-flex p-2">
                                     <form action="{{ route('customer.destroy', $customerlist->id)}}" method="post">

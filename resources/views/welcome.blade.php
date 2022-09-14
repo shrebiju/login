@@ -32,14 +32,15 @@
                     @if (Route::has('login'))
                     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                         @auth
-                            <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
+                            <a href="{{ url('/home') }}" class="btn btn-outline-primary">Home</a>
+                            <!-- @if(Auth::check())
+                                <a href="{{route('frontend.customer.create')}}" class="btn btn-outline-primary">Customer</a>
+                           @endif -->
                         @else
                             <a href="{{ route('login') }}" class="btn btn-outline-success">Login</a>
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="btn btn-outline-primary">Register</a>
                             @endif
-                           
-                                <a href="{{route('frontend.customer.create')}}" class="btn btn-outline-primary">Customer</a>
                            
                         @endif
                     </div>

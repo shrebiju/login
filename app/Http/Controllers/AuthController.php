@@ -27,6 +27,7 @@ class AuthController extends Controller
             'email' =>request()->get('email'),
             'phone_number' =>request()->get('phone_number'),
             'message' =>request()->get('message'),
+            'dob' =>request()->get('dob'),
             'password' =>bcrypt(request()->get('password'))]);
 
             return response()->json([

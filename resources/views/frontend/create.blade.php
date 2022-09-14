@@ -39,7 +39,7 @@
         </div>
         <div class="mb-3">
             <label for="">Send Message </label>
-            <textarea name="description" row="5" class="form-control" data-validation="required"></textarea>
+            <textarea name="message" row="5" class="form-control" data-validation="required"></textarea>
         </div>
         <input type="hidden" name="user_id" value="{{$model}}">
         <label for="cars">Client Choose:</label>
