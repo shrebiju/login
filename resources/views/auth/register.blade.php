@@ -63,12 +63,12 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="dob" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth ') }}</label>
+                            <label for="date" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth ') }}</label>
                             <div class="col-md-6">
-                                <input id="dob" type="dob" class="form-control @error('dob') is-invalid @enderror" name="dob" value="{{ old('dob') }}" required autocomplete="dob">
-                                @error('dob')
+                                <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="date">
+                                @error('date')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $dob }}</strong>
+                                        <strong>{{ $date }}</strong>
                                     </span>
                                 @enderror
                             </div>

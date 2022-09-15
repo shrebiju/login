@@ -46,7 +46,7 @@ class CustomerController extends Controller
                 'name' => 'required',
                 'email' => 'required',
                 'phone_number' => 'required',
-                'dob' => 'required',
+                'date' => 'required',
                 'message' => 'required',
             ]);
          
@@ -67,7 +67,7 @@ class CustomerController extends Controller
         $data['email'] = $request->email;
         $data['phone_number'] = $request->phone_number;
         $data['message'] = $request->message;
-        $data['dob'] = $request->dob;
+        $data['date'] = $request->date;
         $customers = Customer::whereId($id)->update($data);
         return redirect()->route('customer.index', $customers)->with('message','Customers updated successfully');
     }

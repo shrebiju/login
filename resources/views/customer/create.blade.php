@@ -43,7 +43,7 @@
         </div>
         <div class="mb-3">
             <label for="">Date of Birth </label>
-            <input type="dob" name="dob" class="form-control" placeholder="Enter Here Date of Birth" >
+            <input type="date" name="date" class="form-control" placeholder="Enter Here Date of Birth" >
         </div>
         <div class="mb-3">
             <label for="">Send Message </label>

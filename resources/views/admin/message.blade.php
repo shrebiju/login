@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Customer Relation Management (CRM)</title>
+  <style type="text/css">
+  </style>
+</head>
+<body>
 @if (session()->has('success'))
 <div class="alert alert-success" id="alert-message">
     @if(is_array(session('success')))
@@ -10,11 +18,11 @@
         {{ session('success') }}
     @endif
 </div>
-@endif
+@endif                       
+</body>
 
 <script type="text/javascript">
 $(document).ready(function () {
-    $('.alert alert-success').delay(1000).slideUp(300);
-        });
+    $('.alert alert-success').delay(5000).slideUp(300);
+});
 </script>
-
