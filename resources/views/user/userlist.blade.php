@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-
 <div class="container-fluid px-4">
    <div class="card mt-4">
    <div class="card-header">
@@ -19,7 +18,11 @@
                         <th>Phone Number</th>
                         <th>Message</th>
                         <th>Link Generated</th>
+                        @if(Auth::check())
+                        @if(Auth::user()->role_as == 1)
                         <th>Action</th>
+                        @endif
+                        @endif
                     </tr>
                     </thead>
                     <tbody id="tablebody">

@@ -12,10 +12,15 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
         <!-- Styles -->
-        <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body class="">
+    <style>
+    .astricshow {
+	margin-left: 5px;
+	color: red;
+    }
+    </style>
     <div class="container-fluid px-4">
    <div class="card mt-4">
    <div class="card-header">
@@ -35,20 +40,27 @@
     <form action="{{ route('frontend.customer.store') }}" method="POST"  enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-            <label for="">Name</label>
-            <input type="text" name="name" class="form-control" data-validation="required">
+            <label for="">Customer Name <span class="astricshow">*</span></label>
+            <input type="text" name="name" class="form-control" placeholder="Enter Here Name" required>
+            @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
-            <label for="">Email </label>
-            <input type="text" name="email" class="form-control" data-validation="required">
+            <label for="">Email  <span class="astricshow">*</span></label>
+            <input type="text" name="email" class="form-control" placeholder="Enter Here Email" data-validation="required">
         </div>
         <div class="mb-3">
-            <label for="">Contact Number </label>
-            <input type="phone_number" name="phone_number" class="form-control" data-validation="required">
+            <label for="">Contact Number  <span class="astricshow">*</span></label>
+            <input type="number" name="phone_number" class="form-control" placeholder="Enter Here Number" data-validation="required">
+        </div>
+        <div class="mb-3">
+            <label for="">Date of Birth  </label>
+            <input type="number" name="dob" class="form-control" placeholder="Enter Here DOB"data-validation="required">
         </div>
         <div class="mb-3">
             <label for="">Send Message </label>
-            <textarea name="message" row="5" class="form-control" data-validation="required"></textarea>
+            <textarea name="message" row="5" class="form-control" placeholder="Send Message"data-validation="required"></textarea>
         </div>
         <input type="hidden" name="user_id" value="{{$model}}">
     </div>
@@ -62,8 +74,6 @@
     </div>
 </div>
     </body>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
 </html>
 
