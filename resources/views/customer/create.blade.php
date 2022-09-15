@@ -7,21 +7,33 @@
    <div class="card-header">
     <h4 class="">Add Category</h4>
    </div>
+   @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
    <div class="card-body">
    @include('admin.message')
     <form action="{{ route('customer.store') }}" method="POST"  enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="">Customer Name</label>
-            <input type="text" name="name" class="form-control" placeholder="Enter Here Name" data-validation="required">
+            <input type="text" name="name" class="form-control" placeholder="Enter Here Name" required>
+            @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="mb-3">
             <label for="">Email Address </label>
-            <input type="text" name="email" class="form-control" placeholder="Enter Here Email" data-validation="required">
+            <input type="text" name="email" class="form-control" placeholder="Enter Here Email" required>
         </div>
         <div class="mb-3">
             <label for="">Contact Number </label>
-            <input type="phone_number" name="phone_number" class="form-control" placeholder="Enter Here Number" data-validation="required">
+            <input type="phone_number" name="phone_number" class="form-control" placeholder="Enter Here Number" required>
         </div>
         <div class="mb-3">
             <label for="">Date of Birth </label>
@@ -29,7 +41,7 @@
         </div>
         <div class="mb-3">
             <label for="">Send Message </label>
-            <textarea name="message" row="5" class="form-control"  placeholder="Enter Here Message"  data-validation="required"></textarea>
+            <textarea name="message" row="5" class="form-control"  placeholder="Enter Here Message"  required></textarea>
         </div>
         <input type="hidden" name="user_id" class="form-control" value="{{auth()->user()->id ?? ''}}">
         <div class="mb-3">

@@ -19,15 +19,11 @@ class CustomerController extends Controller
     }
     public function store(Request $request)
     {
-        $this->validate(
-            $request,
-                [
-                    'name' => 'required',
-                ],
-                [
-                    'name.required' => 'Customer name is required!!',
-                ]
-            );
+      
+            $validated = $request->validate([
+                'name' => 'required'
+              
+            ]);
         $customer = Customer::create($request->all());
         return redirect()->back()
         ->withSuccess(['Customer Created succesfully!']);

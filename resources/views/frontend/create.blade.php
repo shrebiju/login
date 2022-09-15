@@ -21,6 +21,15 @@
    <div class="card-header">
     <h4 class="">Add Category</h4>
    </div>
+   @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
    @include('admin.message')
    <div class="card-body">
     <form action="{{ route('frontend.customer.store') }}" method="POST"  enctype="multipart/form-data">
@@ -42,17 +51,13 @@
             <textarea name="message" row="5" class="form-control" data-validation="required"></textarea>
         </div>
         <input type="hidden" name="user_id" value="{{$model}}">
-        <label for="cars">Client Choose:</label>
-       
-
-      
-     
     </div>
         <div class="mb-3">
         <div class="col-md-6">
         <button type="submit" class="btn btn-primary">Register</button>
         </div>
     </form>
+  
    </div>
     </div>
 </div>

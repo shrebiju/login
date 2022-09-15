@@ -19,6 +19,7 @@
                         <th>Phone Number</th>
                         <th>Message</th>
                         <th>Link Generated</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody id="tablebody">
@@ -65,6 +66,10 @@
                                     @endphp
                                        <a href="{{url('frontend/customer',($clientID))}}">Please click in Link </a>
                                     </td>
+                                    <td class="attachment">
+                                  <a href="{{url('admin/user/customer',$userlist->id)}}">  <button class="btn btn-primary">View customer</button>
+                                    </a>
+                                    </td>
                                 </a>
                                 </td> 
                                 </tr>
@@ -77,7 +82,6 @@
                                         {{ ++$index }}
                                     </td>
                                     <td class="index">
-                                      
                                         {{ Auth::user()->name }} 
                                     </td>
                                     <td class="title">

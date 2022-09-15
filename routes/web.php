@@ -38,6 +38,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::delete('destroy/{id}',[App\Http\Controllers\Admin\CustomerController::class,'destroy'])->name('customer.destroy');
     // User Fetch Data
     Route::get('user',[App\Http\Controllers\Admin\CustomerController::class,'user'])->name('user.list');
+    Route::get('user/customer/{id}',[App\Http\Controllers\Admin\CustomerController::class,'customerlist'])->name('user.customer.list');
+
     Route::get('link',[App\Http\Controllers\Admin\LinkController::class,'index'])->name('link.list');
     Route::get('link/create',[App\Http\Controllers\Admin\LinkController::class,'create'])->name('link.create');
     Route::post('link/store',[App\Http\Controllers\Admin\LinkController::class,'store'])->name('link.store');

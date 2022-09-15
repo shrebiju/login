@@ -36,37 +36,26 @@ class CustomerController extends Controller
 
     public function create()
     {
-       
         return view('customer.create');
     }
     public function store(Request $request)
     {
         // dd($request->all());
-        $this->validate(
-            $request,
-                [
-                    'name' => 'required',
-                ],
-                [
-                    'name.required' => 'Customer category is required!!',
-                ]
-            );
+      
+            $validated = $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'phone_number' => 'required',
+                'dob' => 'required',
+                'message' => 'required',
+            ]);
+         
         $customer = Customer::create($request->all());
         return redirect()->back()
         ->withSuccess(['Customer Created succesfully!']);
         // return redirect()->route('customer.index',$customer->id)
         // ->withSuccess(['Customer Created succesfully!']);
-      
           
-    }
-    public function user(){
-        if (Auth::user()->role_as == 1) {
-            $user = User::all();
-            
-          } else {
-            $user = User::all();
-          }
-       return view('user.userlist',compact('user'));  
     }
     public function edit($id)
     {
@@ -88,5 +77,19 @@ class CustomerController extends Controller
         $Customer = Customer::findOrfail($id);
         $Customer->delete();
         return redirect()->back();
+    }
+    public function user(){
+        if (Auth::user()->role_as == 1) {
+            $user = User::all();
+            
+          } else {
+            $user = User::all();
+          }
+       return view('user.userlist',compact('user'));  
+    }
+    public function customerlist($id){
+        $user = User::with(['customers'])->find($id);
+        $client = $user->customers;
+       return view('user.customerlist',compact('client'));
     }
 }
